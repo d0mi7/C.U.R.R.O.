@@ -50,6 +50,9 @@ def sendInput():
       
       y1 = float(xEntry.get().split(",")[1])
       y2 = float(yEntry.get().split(",")[1])
+
+      xm = (x1+x2) / 2
+      ym = (y1+y2) / 2
       
 
       v1 = [x1, x2]
@@ -57,6 +60,8 @@ def sendInput():
 
 
       ax.plot(v1, v2, "r-o")
+
+      ax.plot(xm, ym, "ro")
 
     
       d1 = (x2-x1)**2
@@ -67,8 +72,8 @@ def sendInput():
 
       distance = math.sqrt(d1 + d2)
 
-      a = AnchoredText("d={}".format(distance), loc=1, pad=0.4, borderpad=0.5)
-      plt.gca().add_artist(a)
+      text = AnchoredText("Distanza: {}\nPunto Medio: {}, {}".format(distance, xm, ym), loc=1, pad=0.5, borderpad=1)
+      plt.gca().add_artist(text)
 
       print(distance)
 
